@@ -9,6 +9,9 @@ case $1 in
   all)
     redo-ifchange poly1305aes_test.a poly1305aes_test.so
     ;;
+  tests)
+    redo-ifchange test-aes test-constanttime test-poly1305aes
+    ;;
   clean) rm -f *.o *.d *.a *.so ;;
   distclean) redo clean; rm -rf .redo .do_built* *.did ;;
   poly1305aes_test.d)
@@ -36,5 +39,12 @@ EOF
     $CC -MD -MF $2.d $CPPFLAGS $CFLAGS -c -o $3 $2.c
     read DEPS < $2.d; DEPS=${DEPS#*:}
     redo-ifchange $DEPS
+    ;;
+  *)
+    if [ "$1" = "$2" ] && [ -f $2.c ]; then
+      DEPS=poly1305aes_test.a
+      redo-ifchange $2.o $DEPS
+      $CC $LDFLAGS $2.o $DEPS -o $3
+    fi
     ;;
 esac

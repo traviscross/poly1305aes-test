@@ -7,3 +7,6 @@
 *.o
 *.so
 *.a
+/test-aes
+/test-constanttime
+/test-poly1305aes
