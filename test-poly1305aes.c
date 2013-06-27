@@ -5,7 +5,7 @@ Public domain.
 */
 
 #include <stdio.h>
-#include "poly1305aes.h"
+#include "poly1305aes_test.h"
 
 #define MAXLEN 1000
 unsigned char out[16];

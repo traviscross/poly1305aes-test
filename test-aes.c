@@ -6,7 +6,7 @@ Keys and plaintexts are copied from NIST's Monte Carlo tests.
 */
 
 #include <stdio.h>
-#include "aes.h"
+#include "aes_openssl.h"
 
 unsigned char data[] = {
 
