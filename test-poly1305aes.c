@@ -5,6 +5,7 @@ Public domain.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "poly1305aes_test.h"
 
 #define MAXLEN 1000
