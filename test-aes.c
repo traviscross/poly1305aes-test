@@ -1214,7 +1214,7 @@ unsigned char data[] = {
 
 unsigned char out[32];
 
-main()
+int main()
 {
   int i;
   int j;

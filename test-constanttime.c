@@ -31,14 +31,14 @@ void doit(const unsigned char *buf,const unsigned int len,
 unsigned char x[MAXLEN];
 unsigned char y[MAXLEN];
 
-main()
+int main()
 {
   int i;
   int j;
   int len;
   int loop;
 
-  doit("",0,"");
+  doit((unsigned char*)"",0,(unsigned char*)"");
 
   for (i = 0;i < 256;++i)
     for (j = 0;j < 256;++j) {

@@ -14,7 +14,7 @@ unsigned char kr[32];
 unsigned char n[16];
 unsigned char m[MAXLEN];
 
-main()
+int main()
 {
   int loop;
   int len;
