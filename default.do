@@ -5,14 +5,16 @@ exec >&2; set -- $1 ${1%.*} $3
 [ -n "$CPPFLAGS" ] || export CPPFLAGS=""
 [ -n "$LDFLAGS" ] || export LDFLAGS="-lssl -lgmp"
 
+tests="test-aes test-constanttime test-poly1305aes"
+
 case $1 in
   all)
     redo-ifchange poly1305aes_test.a poly1305aes_test.so
     ;;
   tests)
-    redo-ifchange test-aes test-constanttime test-poly1305aes
+    redo-ifchange $tests
     ;;
-  clean) rm -f *.o *.d *.a *.so ;;
+  clean) rm -f *.o *.d *.a *.so $tests ;;
   distclean) redo clean; rm -rf .redo .do_built* *.did ;;
   poly1305aes_test.d)
     cat > $3 <<EOF
