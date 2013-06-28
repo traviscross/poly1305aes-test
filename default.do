@@ -14,6 +14,10 @@ case $1 in
   tests)
     redo-ifchange $tests
     ;;
+  test)
+    redo tests; redo-ifchange run-tests.sh
+    sh run-tests.sh quick
+    ;;
   clean) rm -f *.o *.d *.a *.so $tests ;;
   distclean) redo clean; rm -rf .redo .do_built* *.did ;;
   poly1305aes_test.d)
